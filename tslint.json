@@ -1,0 +1,27 @@
+{
+  "extends": ["tslint-microsoft-contrib", "tslint-react"],
+  "rules": {
+    "import-name": false,
+    "jsx-no-multiline-js": false,
+    "jsx-alignment": false,
+    "no-implicit-dependencies": false,
+    "no-import-side-effect": [true, {"ignore-module": "\\.pcss"}],
+    "no-inferrable-types": [true, "ignore-params", "ignore-properties"],
+    "no-submodule-imports": false,
+    "max-file-line-count": [true, 300],
+    "max-line-length": [true, 80],
+    "quotemark": [true, "single", "jsx-double"],
+    "typedef": [
+      true,
+      "array-destructuring",
+      "arrow-call-signature",
+      "arrow-parameter",
+      "call-signature",
+      "member-variable-declaration",
+      "object-destructuring",
+      "parameter",
+      "property-declaration"
+    ],
+    "variable-name": [true, "ban-keywords", "check-format", "allow-pascal-case"]
+  }
+}
