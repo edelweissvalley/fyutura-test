@@ -3,7 +3,9 @@ import io from 'socket.io-client';
 
 import 'components/app.pcss';
 
-type itemType = {
+import {lineChart} from 'src/components/lineChart/lineChart';
+
+export type itemType = {
   value: number;
   timestamp: number;
 };
@@ -16,10 +18,7 @@ interface IState {
  * Компонент для рендера
  */
 export class App extends React.Component<{}, IState> {
-  constructor(props: object) {
-    super(props);
-    this.state = {serverData: []};
-  }
+  public readonly state: IState = {serverData: []};
 
   public componentDidMount(): void {
     const socket: SocketIOClient.Socket = io('http://localhost:3000');
@@ -33,14 +32,12 @@ export class App extends React.Component<{}, IState> {
   public render(): React.ReactNode {
     const data: itemType[] = this.state.serverData;
 
-    return data.length
+    return Boolean(data.length)
       ? (
-        <section>
-          {data.map(({value: v, timestamp: t}: itemType): React.ReactNode => (
-            <div key={t}>Число: <span>{v}</span> ---> Время: {t}</div>
-          ))}
+        <section className="root__section">
+          {lineChart(data)}
         </section>
       )
-      : (<div>Данных пока нет...</div>);
+      : (<div className="root__no-data">Данных пока нет...</div>);
   }
 }

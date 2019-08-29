@@ -5,10 +5,10 @@
       true,
       {
         "method-regex": "^[a-z][\\w\\d]+$",
-        "private-method-regex": "^[a-z][\\w\\d]+$",
-        "protected-method-regex": "^[a-z][\\w\\d]+$",
+        "private-method-regex": "^[a-zA-Z][\\w\\d]+$",
+        "protected-method-regex": "^[a-zA-Z][\\w\\d]+$",
         "static-method-regex": "^[a-zA-Z_\\d]+$",
-        "function-regex": "^[a-z][\\w\\d]+$"
+        "function-regex": "^[a-zA-Z][\\w\\d]+$"
       }
     ],
     "import-name": false,
