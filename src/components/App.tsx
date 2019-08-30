@@ -3,6 +3,7 @@ import io from 'socket.io-client';
 
 import 'components/app.pcss';
 
+import {barChart} from 'src/components/barChart/barChart';
 import {lineChart} from 'src/components/lineChart/lineChart';
 
 export type itemType = {
@@ -35,7 +36,8 @@ export class App extends React.Component<{}, IState> {
     return Boolean(data.length)
       ? (
         <section className="root__section">
-          {lineChart(data)}
+          <aside>{lineChart(data)}</aside>
+          <aside>{barChart(data.map(({value}: itemType) => (value)))}</aside>
         </section>
       )
       : (<div className="root__no-data">Данных пока нет...</div>);
